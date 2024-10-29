@@ -1,19 +1,17 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { PlusIcon } from "lucide-react"
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import ReCAPTCHA from "react-google-recaptcha"
 
-export function RequestFormDialog() {
+export default function Home() {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
-  const [open, setOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -46,25 +44,11 @@ export function RequestFormDialog() {
     }
   }
 
-  const handleCancel = () => {
-    setOpen(false)
-    setName("")
-    setDescription("")
-  }
-
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button className="flex items-center gap-2 font-display">
-          <PlusIcon size={16} />
-          Make a Request
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[640px] font-display p-8">
-        <DialogHeader>
-          <DialogTitle className="sm:text-2xl">Make a Request for Johnny to Build Your Project</DialogTitle>
-          <DialogDescription>Fill out the form below to submit a new request. Make it interesting. Keep it fun.</DialogDescription>
-        </DialogHeader>
+    <div className="min-h-screen flex flex-col font-display">
+      <main className="flex flex-col grow gap-4 row-start-2 justify-center items-center font-display py-12">
+        <h1 className="text-7xl font-extrabold">Johnny Builds</h1>
+        <p className="text-xl text-center">Send your project build request. Make it interesting. Keep it fun.</p>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
@@ -89,14 +73,24 @@ export function RequestFormDialog() {
               </div>
             </div>
           </div>
-          <DialogFooter className="pt-8 pb-2">
-            <Button type="button" variant="outline" onClick={handleCancel}>
-              Cancel
-            </Button>
+          <div className="flex gap-4 justify-end pt-8 pb-2">
+            <Link href="/">
+              <Button type="button" variant="outline">
+                Cancel
+              </Button>
+            </Link>
             <Button type="submit">Send Request</Button>
-          </DialogFooter>
+          </div>
         </form>
-      </DialogContent>
-    </Dialog>
+      </main>
+      <footer className="p-8">
+        <h3 className="pb-4 font-bold">Posts</h3>
+        <ul>
+          <li>
+            <a href="https://medium.com/@johnnybuilds/how-johnny-builds-new-web-projects-51f32b39bc20">How Johnny Builds New Web Projects</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
   )
 }

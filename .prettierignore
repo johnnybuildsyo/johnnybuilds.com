@@ -1,3 +1,4 @@
+# .prettierignore
 .cache
 .next
 package.json
