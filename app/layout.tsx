@@ -1,4 +1,3 @@
-import { ClerkProvider } from "@clerk/nextjs"
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
@@ -33,14 +32,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased font-display`}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased font-display`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }
