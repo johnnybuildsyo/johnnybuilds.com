@@ -1,16 +1,17 @@
 "use client"
 
 import Link from "next/link"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
 import ReCAPTCHA from "react-google-recaptcha"
 
 export default function Home() {
-  const [name, setName] = useState("")
+  const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
+  const [contact, setContact] = useState("")
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,13 +27,12 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, description, captchaToken }),
+        body: JSON.stringify({ title, description, contact, captchaToken }),
       })
 
       const data = await res.json()
       if (res.ok) {
         alert("Request submitted successfully")
-        setName("")
         setDescription("")
         setCaptchaToken(null)
       } else {
@@ -45,52 +45,53 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col font-display">
-      <main className="flex flex-col grow gap-4 row-start-2 justify-center items-center font-display py-12">
-        <h1 className="text-7xl font-extrabold">Johnny Builds</h1>
-        <p className="text-xl text-center">Send your project build request. Make it interesting. Keep it fun.</p>
-        <form onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Name
-              </Label>
-              <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="col-span-3" placeholder="Enter a name for your project" required />
-            </div>
-            <div className="grid grid-cols-4 items-start gap-4">
-              <Label htmlFor="description" className="text-right pt-3">
-                Description
-              </Label>
-              <Textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="col-span-3" rows={8} placeholder="Provide a compelling description" required />
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              <div className="fpt-4 col-start-2 col-span-3">
-                <div className="rounded-xl overflow-hidden w-[300px] h-[74px] border border-white/20">
-                  <div className="relative -left-0.5 -top-0.5">
-                    <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} theme="dark" onChange={(value) => setCaptchaToken(value)} />
-                  </div>
+    <>
+      <h1 className="text-7xl font-extrabold">Johnny Builds</h1>
+      <p className="text-xl text-center">Send a project build request. If it is interesting, maybe I’ll build it.</p>
+      <form className="w-full max-w-xl mx-auto" onSubmit={handleSubmit}>
+        <div className="flex flex-col gap-4 py-4 w-full items-start">
+          <div className="w-full flex flex-col gap-1">
+            <Label htmlFor="title">Give your project a name</Label>
+            <Input maxLength={30} id="title" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full" placeholder="Keep it short & catchy" required />
+          </div>
+          <div className="w-full flex flex-col gap-1">
+            <Label htmlFor="title">Description</Label>
+            <Textarea
+              aria-label="Project description"
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full"
+              rows={8}
+              placeholder="What would you like me to build?"
+              required
+            />
+          </div>
+          <div className="w-full flex flex-col gap-1">
+            <Label htmlFor="contact">
+              Contact <span className="text-xs opacity-70 italic">(will not be shared)</span>
+            </Label>
+          </div>
+          <Textarea id="contact" value={contact} onChange={(e) => setContact(e.target.value)} className="w-full" rows={3} placeholder="How would you like me to contact you?" required />
+          <div className="flex justify-end w-full">
+            <div className="fpt-4 col-start-2 col-span-3">
+              <div className="rounded-xl overflow-hidden w-[300px] h-[74px] border border-white/20">
+                <div className="relative -left-0.5 -top-0.5">
+                  <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} theme="dark" onChange={(value) => setCaptchaToken(value)} />
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex gap-4 justify-end pt-8 pb-2">
-            <Link href="/">
-              <Button type="button" variant="outline">
-                Cancel
-              </Button>
-            </Link>
-            <Button type="submit">Send Request</Button>
-          </div>
-        </form>
-      </main>
-      <footer className="p-8">
-        <h3 className="pb-4 font-bold">Posts</h3>
-        <ul>
-          <li>
-            <a href="https://medium.com/@johnnybuilds/how-johnny-builds-new-web-projects-51f32b39bc20">How Johnny Builds New Web Projects</a>
-          </li>
-        </ul>
-      </footer>
-    </div>
+        </div>
+        <div className="flex gap-4 justify-end pt-8 pb-2">
+          <Link href="/">
+            <Button type="button" variant="outline">
+              Cancel
+            </Button>
+          </Link>
+          <Button type="submit">Send Request</Button>
+        </div>
+      </form>
+    </>
   )
 }
