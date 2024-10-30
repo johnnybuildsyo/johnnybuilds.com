@@ -35,7 +35,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased font-display`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
+          <div className="min-h-screen flex flex-col font-display">
+            <main className="flex flex-col grow gap-4 row-start-2 justify-center items-center font-display py-12">{children}</main>
+            <footer className="p-8">footer</footer>
+          </div>
         </ThemeProvider>
       </body>
     </html>
