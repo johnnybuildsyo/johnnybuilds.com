@@ -5,6 +5,7 @@ import { ProjectsSection } from "@/components/projects-section"
 import { PostsSection } from "@/components/posts-section"
 import { fetchMediumPosts } from "./_actions"
 import { Post } from "./_types"
+import { JohnnyDock } from "@/components/johnny-dock"
 
 const posts = (await fetchMediumPosts()) as Post[]
 
@@ -19,6 +20,7 @@ export default function Home() {
           Make a Request
         </Button>
       </Link>
+      <JohnnyDock />
       <ProjectsSection />
       <PostsSection posts={posts} />
     </>
