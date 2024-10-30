@@ -51,7 +51,7 @@ const Icons = {
 const socials = [
   {
     name: "GitHub",
-    url: "#",
+    url: "https://github.com/johnnybuildsyo",
     icon: Icons.github,
   },
   {
@@ -61,7 +61,7 @@ const socials = [
   },
   {
     name: "Medium",
-    url: "#",
+    url: "https://medium.com/@johnnybuilds",
     icon: Icons.medium,
   },
 ]
