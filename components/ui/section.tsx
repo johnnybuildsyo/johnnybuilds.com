@@ -4,7 +4,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-const sectionVariants = cva("w-full max-w-2xl mx-auto px-4 md:px-6 py-8")
+const sectionVariants = cva("w-full max-w-4xl mx-auto px-4 md:px-6 py-4 sm:py-8")
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof sectionVariants> {
   title: string
