@@ -11,9 +11,9 @@ export function PostsSection({ posts }: { posts: Post[] }) {
         {posts.map((post) => (
           <div key={post.pubDate} className="flex flex-col justify-center items-center">
             <a className="flex items-center gap-4 group hover:scale-[1.01] transition-all ease-in-out duration-500" href={post.link} target="_blank">
-              <Button className="text-sm pl-2 pr-1 py-0 gap-0 h-auto opacity-50 group-hover:opacity-70 transition-all ease-in-out duration-500 rounded">
+              <Button className="relative left-3 font-mono font-semibold uppercase text-sm pl-2 pr-1 py-0.5 gap-0 h-auto opacity-50 group-hover:opacity-70 transition-all ease-in-out duration-500 rounded scale-75">
                 <>
-                  Read <ChevronsRightIcon />
+                  Read <ChevronsRightIcon className="relative -top-px" />
                 </>
               </Button>
               <h3 className="text-xl font-bold">{post.title}</h3>
