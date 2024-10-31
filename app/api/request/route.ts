@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from "next/server"
 
-// Load the secret key from environment variables
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY
 
 export async function POST(req: NextRequest) {
   try {
     // Parse the request body
-    const { name, description, captchaToken } = await req.json()
+    const { title, description, contact, captchaToken } = await req.json()
 
-    if (!name || !description || !captchaToken) {
+    if (!title || !description || !contact || !captchaToken) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 })
     }
 

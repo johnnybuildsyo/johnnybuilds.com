@@ -37,7 +37,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <div className="min-h-screen flex flex-col font-display">
             <main className="flex flex-col grow gap-4 row-start-2 justify-center items-center font-display py-12">{children}</main>
-            <footer className="p-8">footer</footer>
+            <footer className="w-full text-center opacity-50 text-sm italicy py-8 border-t">footer, because you need a footer</footer>
           </div>
         </ThemeProvider>
       </body>

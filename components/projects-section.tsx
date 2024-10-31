@@ -68,7 +68,7 @@ export function ProjectsSection() {
       <div className="space-y-8">
         {projects.length === 0 && (
           <div className="text-center italic opacity-70">
-            <p>No projects yet.</p>
+            <p>No projects yet. I’m cooking.</p>
           </div>
         )}
         {projects.map((project, index) => (
