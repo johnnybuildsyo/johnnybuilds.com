@@ -21,9 +21,17 @@ const geistMono = localFont({
   weight: "100 900",
 })
 
+const shareImage = "https://johnnybuilds.com/screenshot.png"
+
 export const metadata: Metadata = {
   title: "Johnny Builds",
   description: "Johnny builds web stuff for people in public",
+  openGraph: {
+    images: shareImage,
+  },
+  twitter: {
+    images: shareImage,
+  },
 }
 
 export default function RootLayout({
