@@ -14,7 +14,7 @@ const GlitchySubhead = () => {
       },
       {
         original: "stuff",
-        substitutions: ["shtuff", "stank", "ztuzz"],
+        substitutions: ["stush", "stank", "ztuzz"],
       },
       {
         original: "in",
@@ -87,7 +87,7 @@ const GlitchySubhead = () => {
     return substitutionIndex === -1 ? word.original : word.substitutions[substitutionIndex]
   })
 
-  return <h2 className="text-xl text-center">{currentWords.join(" ")}</h2>
+  return <h2 className="text-xl opacity-70 text-center font-mono">{currentWords.join(" ")}</h2>
 }
 
 export default GlitchySubhead
