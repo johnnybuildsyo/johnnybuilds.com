@@ -4,11 +4,17 @@ I build web stuff for people in public.
 
 This README is pretty much a to-do list and collection of random thoughts related to the website. If you want to know how to run the site locally, it is pretty much a [basic next.js app](https://nextjs.org/docs).
 
+## TO-DO
+
+1. Finish writing How [Johnny Build JohnnyBuilds.com](https://medium.com/p/7cbea268e8fe/edit)
+2. Add uses section
+
+
 ## Build-In-Public Posting Process
 
 For posts
 1. Write a post on Medium
-    - Cross post to other platforms (tbd)
+    - Cross post to dev.to + other platforms (tbd)
 2. Break apart into a Twitter thread
     - Tag related accounts
     - Cross post to Bluesky
