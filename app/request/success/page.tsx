@@ -11,7 +11,7 @@ export default function RequestSuccessPage() {
           <CardDescription>Your project build request has been submitted.</CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Thank you for your submission. We'll review your project idea and get back to you soon.</p>
+          <p>Thank you for your submission. We’ll review your project idea and get back to you soon.</p>
         </CardContent>
         <CardFooter className="justify-center">
           <Link href="/">

@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { PlusIcon } from "lucide-react"
 import Link from "next/link"
+import Intro from "@/components/intro"
+import GlitchySubhead from "@/components/glitchy-subhead"
+import { JohnnyDock } from "@/components/johnny-dock"
 import { ProjectsSection } from "@/components/projects-section"
 import { PostsSection } from "@/components/posts-section"
 import { fetchMediumPosts } from "./_actions"
 import { Post } from "./_types"
-import { JohnnyDock } from "@/components/johnny-dock"
-import GlitchySubhead from "@/components/glitchy-subhead"
 
 const posts = (await fetchMediumPosts()) as Post[]
 
@@ -21,6 +22,7 @@ export default function Home() {
           Make a Request
         </Button>
       </Link>
+      <Intro />
       <JohnnyDock />
       <ProjectsSection />
       <PostsSection posts={posts} />

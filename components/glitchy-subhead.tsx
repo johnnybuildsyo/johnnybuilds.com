@@ -50,14 +50,11 @@ const GlitchySubhead = () => {
 
       const t = elapsedTime % cycleDuration
       const delay = minDelay + (maxDelay - minDelay) * Math.abs(Math.cos((Math.PI * t) / cycleDuration))
-
       const wordIndex = Math.floor(Math.random() * words.length)
       const word = words[wordIndex]
-
       if (word.substitutions.length > 0) {
         setCurrentIndices((prevIndices) => {
           const newIndices = [...prevIndices]
-
           if (newIndices[wordIndex] === -1) {
             newIndices[wordIndex] = 0
           } else {
@@ -67,14 +64,11 @@ const GlitchySubhead = () => {
               newIndices[wordIndex] = -1
             }
           }
-
           return newIndices
         })
       }
-
       setTimeout(updateWord, delay)
     }
-
     updateWord()
 
     return () => {

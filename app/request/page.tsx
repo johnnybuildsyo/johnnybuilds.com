@@ -10,14 +10,11 @@ export default function RequestPage() {
     const description = data.get("description") as string
     const contact = data.get("contact") as string
     const captchaToken = data.get("captchaToken") as string
-
     if (!title || !description || !contact || !captchaToken) {
       throw new Error("Missing fields")
     }
-
     await verifyCaptcha(captchaToken)
     await sendRequest({ title, description, contact })
-
     redirect("/request/success")
   }
 
