@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
 import RequestForm from "@/components/request-form"
 import { verifyCaptcha, sendRequest } from "../_actions"
 
@@ -18,7 +18,7 @@ export default function RequestPage() {
     await verifyCaptcha(captchaToken)
     await sendRequest({ title, description, contact })
 
-    revalidatePath("/")
+    redirect("/request/success")
   }
 
   return (
