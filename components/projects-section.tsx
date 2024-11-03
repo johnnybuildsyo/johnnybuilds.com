@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { useEffect } from "react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
@@ -8,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Section } from "./ui/section"
 import { ExternalLink, GithubIcon, BookOpen, MessageCircle, Youtube, StarIcon } from "lucide-react"
+import { OpenAIIcon } from "./ui/icons/OpenAIIcon"
 
 type Project = {
   title: string
@@ -17,10 +17,10 @@ type Project = {
   github: string
   stars?: number
   image: string
-  status: "shipped" | "coding" | "idea"
+  status: "shipped" | "coding" | "getting started" | "idea"
   blogPost?: string
   additionalLinks?: {
-    type: "hn" | "reddit" | "youtube" | "other"
+    type: "hn" | "reddit" | "youtube" | "openai" | "other"
     url: string
     label: string
   }[]
@@ -28,21 +28,18 @@ type Project = {
 
 export function ProjectsSection() {
   const projects: Project[] = [
-    // {
-    //   title: "E-commerce Platform",
-    //   description: "A full-stack e-commerce solution with React and Node.js",
-    //   tags: ["React", "Node.js", "MongoDB", "Express"],
-    //   url: "https://ecommerce-example.com",
-    //   github: "https://github.com/yourusername/ecommerce-project",
-    //   image: "/placeholder.svg?height=400&width=600",
-    //   status: "shipped",
-    //   blogPost: "https://yourblog.com/ecommerce-platform-case-study",
-    //   additionalLinks: [
-    //     { type: "hn", url: "https://news.ycombinator.com/item?id=12345678", label: "HN Discussion" },
-    //     { type: "youtube", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", label: "Demo Video" },
-    //   ],
-    //   stars: 1000,
-    // },
+    {
+      title: "Global Battle Royale",
+      description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
+      tags: ["next.js", "game", "Express"],
+      url: "",
+      github: "",
+      image: "",
+      status: "getting started",
+      blogPost: "",
+      additionalLinks: [{ type: "openai", url: "https://chatgpt.com/share/67278796-34f4-8009-86b1-eb87ce7fe35e", label: "ChatGPT Idea Discussion" }],
+      stars: 0,
+    },
   ]
 
   useEffect(() => {
@@ -73,28 +70,23 @@ export function ProjectsSection() {
         )}
         {projects.map((project, index) => (
           <Card key={index} className="border overflow-hidden flex flex-col">
-            <div className="relative h-48 overflow-hidden">
-              <Image src={project.image} alt={`Screenshot of ${project.title}`} layout="fill" objectFit="cover" className="bg-foreground/5 w-full h-auto" />
-            </div>
             <div className="flex flex-col flex-grow">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-xl font-bold text-foreground">{project.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold text-foreground flex items-center gap-2">
+                    <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">001</span>
+                    <span>{project.title}</span>
+                  </CardTitle>
                   <div className="flex items-center border rounded py-1 px-2 font-mono">
-                    <div className={`w-2 h-2 rounded-full mr-1 ${project.status === "shipped" ? "bg-green-500" : project.status === "idea" ? "bg-yellow-400" : "bg-blue-500"}`} />
+                    <div
+                      className={`w-2 h-2 rounded-full mr-1 ${project.status === "shipped" || project.status === "getting started" ? "bg-green-500" : project.status === "idea" ? "bg-yellow-400" : "bg-blue-500"}`}
+                    />
                     <span className="text-xs text-foreground/70 lowercase">{project.status}</span>
                   </div>
                 </div>
                 <CardDescription className="text-foreground/70">{project.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary" className="bg-foreground/10 text-foreground/80">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
                 <div className="flex flex-wrap gap-2">
                   {project.blogPost && (
                     <Link href={project.blogPost} target="_blank" rel="noopener noreferrer">
@@ -109,32 +101,39 @@ export function ProjectsSection() {
                       <Button variant="outline" size="sm">
                         {link.type === "hn" && <MessageCircle className="mr-1 h-4 w-4" />}
                         {link.type === "youtube" && <Youtube className="mr-1 h-4 w-4" />}
+                        {link.type === "openai" && <OpenAIIcon className="mr-1 h-4 w-4" />}
                         {link.label}
                       </Button>
                     </Link>
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-between">
-                <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                  <Button variant="secondary" className="bg-foreground/80 text-background hover:bg-foreground/90">
-                    <ExternalLink className="mr-1 h-4 w-4" />
-                    Live Demo
-                  </Button>
-                </Link>
-                <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Button variant="secondary" className="bg-foreground/80 text-background hover:bg-foreground/90">
-                    <GithubIcon className="h-4 w-4" />
-                    GitHub
-                    {project.stars !== undefined && (
-                      <span className="ml-1 px-1 py-0.5 text-xs bg-background/10 rounded inline-flex scale-110">
-                        <StarIcon className="scale-75" />
-                        {project.stars}
-                      </span>
-                    )}
-                  </Button>
-                </Link>
-              </CardFooter>
+              {(project.url || project.github) && (
+                <CardFooter className="flex justify-between">
+                  {project.url && (
+                    <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                      <Button variant="secondary" className="bg-foreground/80 text-background hover:bg-foreground/90">
+                        <ExternalLink className="mr-1 h-4 w-4" />
+                        Live Demo
+                      </Button>
+                    </Link>
+                  )}
+                  {project.github && (
+                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Button variant="secondary" className="bg-foreground/80 text-background hover:bg-foreground/90">
+                        <GithubIcon className="h-4 w-4" />
+                        GitHub
+                        {project.stars !== undefined && (
+                          <span className="ml-1 px-1 py-0.5 text-xs bg-background/10 rounded inline-flex scale-110">
+                            <StarIcon className="scale-75" />
+                            {project.stars}
+                          </span>
+                        )}
+                      </Button>
+                    </Link>
+                  )}
+                </CardFooter>
+              )}
             </div>
           </Card>
         ))}
