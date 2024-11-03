@@ -3,11 +3,18 @@
 import Link from "next/link"
 import { useEffect } from "react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Section } from "./ui/section"
 import { ExternalLink, GithubIcon, BookOpen, MessageCircle, Youtube, StarIcon } from "lucide-react"
 import { OpenAIIcon } from "./ui/icons/OpenAIIcon"
+
+const statusColors: { [key: string]: string } = {
+  shipped: "bg-green-600",
+  coding: "bg-blue-500",
+  "getting started": "bg-green-300",
+  idea: "bg-yellow-400",
+  // Add new statuses here with their color class
+}
 
 type Project = {
   title: string
@@ -29,15 +36,39 @@ type Project = {
 export function ProjectsSection() {
   const projects: Project[] = [
     {
+      title: "JohnnyBuilds Next.js Starter",
+      description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
+      tags: ["next.js", "starter", "template", "resource"],
+      url: "https://johnnybuilds-nextjs-starter.vercel.app/",
+      github: "https://github.com/johnnybuildsyo/johnnybuilds-nextjs-starter",
+      image: "",
+      status: "shipped",
+      blogPost: "",
+      additionalLinks: [{ type: "openai", url: "https://chatgpt.com/share/67278796-34f4-8009-86b1-eb87ce7fe35e", label: "ChatGPT Idea Discussion" }],
+      stars: 1,
+    },
+    {
       title: "Global Battle Royale",
       description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
-      tags: ["next.js", "game", "Express"],
+      tags: ["next.js", "game"],
       url: "",
       github: "",
       image: "",
       status: "getting started",
       blogPost: "",
       additionalLinks: [{ type: "openai", url: "https://chatgpt.com/share/67278796-34f4-8009-86b1-eb87ce7fe35e", label: "ChatGPT Idea Discussion" }],
+      stars: 0,
+    },
+    {
+      title: "AI Tarot Card Reader",
+      description: "An AI Tarot Card reader that generates its own cards then interprets them to read your fortune.",
+      tags: ["next.js", "game"],
+      url: "",
+      github: "",
+      image: "",
+      status: "idea",
+      blogPost: "",
+      additionalLinks: [],
       stars: 0,
     },
   ]
@@ -74,13 +105,11 @@ export function ProjectsSection() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl font-bold text-foreground flex items-center gap-2">
-                    <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">001</span>
+                    <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">{String(index + 1).padStart(3, "0")}</span>
                     <span>{project.title}</span>
                   </CardTitle>
                   <div className="flex items-center border rounded py-1 px-2 font-mono">
-                    <div
-                      className={`w-2 h-2 rounded-full mr-1 ${project.status === "shipped" || project.status === "getting started" ? "bg-green-500" : project.status === "idea" ? "bg-yellow-400" : "bg-blue-500"}`}
-                    />
+                    <div className={`w-2 h-2 rounded-full mr-1 ${statusColors[project.status] || "bg-gray-500"}`} />
                     <span className="text-xs text-foreground/70 lowercase">{project.status}</span>
                   </div>
                 </div>
