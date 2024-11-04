@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Section } from "./ui/section"
 import { ExternalLink, GithubIcon, BookOpen, MessageCircle, Youtube, StarIcon } from "lucide-react"
 import { OpenAIIcon } from "./ui/icons/OpenAIIcon"
+import { Project } from "@/app/_types"
 
 const statusColors: { [key: string]: string } = {
   shipped: "bg-green-600",
@@ -16,63 +17,7 @@ const statusColors: { [key: string]: string } = {
   // Add new statuses here with their color class
 }
 
-type Project = {
-  title: string
-  description: string
-  tags: string[]
-  url: string
-  github: string
-  stars?: number
-  image: string
-  status: "shipped" | "coding" | "getting started" | "idea"
-  blogPost?: string
-  additionalLinks?: {
-    type: "hn" | "reddit" | "youtube" | "openai" | "other"
-    url: string
-    label: string
-  }[]
-}
-
-export function ProjectsSection() {
-  const projects: Project[] = [
-    {
-      title: "JohnnyBuilds Next.js Starter",
-      description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
-      tags: ["next.js", "starter", "template", "resource"],
-      url: "https://johnnybuilds-nextjs-starter.vercel.app/",
-      github: "https://github.com/johnnybuildsyo/johnnybuilds-nextjs-starter",
-      image: "",
-      status: "shipped",
-      blogPost: "",
-      additionalLinks: [{ type: "openai", url: "https://chatgpt.com/share/67278796-34f4-8009-86b1-eb87ce7fe35e", label: "ChatGPT Idea Discussion" }],
-      stars: 1,
-    },
-    {
-      title: "Global Battle Royale",
-      description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
-      tags: ["next.js", "game"],
-      url: "",
-      github: "",
-      image: "",
-      status: "getting started",
-      blogPost: "",
-      additionalLinks: [{ type: "openai", url: "https://chatgpt.com/share/67278796-34f4-8009-86b1-eb87ce7fe35e", label: "ChatGPT Idea Discussion" }],
-      stars: 0,
-    },
-    {
-      title: "AI Tarot Card Reader",
-      description: "An AI Tarot Card reader that generates its own cards then interprets them to read your fortune.",
-      tags: ["next.js", "game"],
-      url: "",
-      github: "",
-      image: "",
-      status: "idea",
-      blogPost: "",
-      additionalLinks: [],
-      stars: 0,
-    },
-  ]
-
+export function ProjectsSection({ projects }: { projects: Project[] }) {
   useEffect(() => {
     projects.forEach((project) => {
       if (project.github) {
