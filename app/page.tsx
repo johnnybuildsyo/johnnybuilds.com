@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { PlusIcon } from "lucide-react"
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import Link from "next/link"
 import Intro from "@/components/intro"
 import GlitchySubhead from "@/components/glitchy-subhead"
@@ -19,8 +19,8 @@ export default function Home() {
       <GlitchySubhead />
       <Link href="https://github.com/johnnybuildsyo/johnnybuilds.com/discussions/">
         <Button className="flex items-center gap-2 font-display">
-          <PlusIcon size={16} />
-          Make a Request
+          <GitHubLogoIcon />
+          Contact
         </Button>
       </Link>
       <Intro />
