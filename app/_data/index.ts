@@ -15,7 +15,7 @@ export const projects: Project[] = [
     },
     {
       title: "Global Battle Royale",
-      description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
+      description: "Massively multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again. A cross between One Million Checkboxes and Squid Game.",
       tags: ["next.js", "game"],
       url: "",
       github: "",

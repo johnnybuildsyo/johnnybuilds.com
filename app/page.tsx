@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <h1 className="text-7xl font-extrabold">Johnny Builds</h1>
       <GlitchySubhead />
-      <Link href="/request">
+      <Link href="https://github.com/johnnybuildsyo/johnnybuilds.com/discussions/">
         <Button className="flex items-center gap-2 font-display">
           <PlusIcon size={16} />
           Make a Request
