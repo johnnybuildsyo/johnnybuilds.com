@@ -49,4 +49,28 @@ export const projects: Project[] = [
       additionalLinks: [],
       stars: 0,
     },
+    {
+      title: "Interactive Movie Playground",
+      description: "Interactive AI playground to create movie loglines, plot outlines, movie trailers and scripts.",
+      tags: ["next.js", "ai", "movies"],
+      url: "",
+      github: "",
+      image: "",
+      status: "idea",
+      blogPost: "",
+      additionalLinks: [],
+      stars: 0,
+    },
+    {
+      title: "Build Log Generator",
+      description: "Tool for generating daily build log entries with AI from commit history for #buildinpublic projects",
+      tags: ["CLI", "ai", "tool", "buildinpublic"],
+      url: "",
+      github: "",
+      image: "",
+      status: "idea",
+      blogPost: "",
+      additionalLinks: [],
+      stars: 0,
+    }
   ]
