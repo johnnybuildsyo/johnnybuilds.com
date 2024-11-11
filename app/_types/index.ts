@@ -19,4 +19,5 @@ export type Project = {
     url: string
     label: string
   }[]
+  isCurrent?: boolean
 }
