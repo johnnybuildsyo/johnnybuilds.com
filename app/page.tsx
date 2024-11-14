@@ -36,7 +36,7 @@ export default function Home() {
         <Intro />
       </div>
 
-      <div className="absolute top-[450px] bg-gradient-to-b from-background via-background to-transparent w-full h-full"></div>
+      <div className="absolute top-[420px] lg:top-[450px] bg-gradient-to-b from-background via-background to-transparent w-full h-full"></div>
       <div className="relative z-10">
         <div className="mt-32">
           <div className="scale-125">
