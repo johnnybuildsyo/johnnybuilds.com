@@ -7,10 +7,9 @@ import { ExternalLink, GithubIcon, BookOpen, MessageCircle, Youtube, StarIcon } 
 import { OpenAIIcon } from "./ui/icons/OpenAIIcon"
 import { Project } from "@/app/_types"
 import { cn } from "@/lib/utils"
-import Image from "next/image"
 
 const statusColors: { [key: string]: string } = {
-  shipped: "bg-green-600",
+  live: "bg-green-600",
   coding: "bg-blue-500",
   "getting started": "bg-green-300",
   idea: "bg-yellow-400",
@@ -21,17 +20,12 @@ export function ProjectCard({ project, index, isCurrent }: { project: Project; i
     <Card className="border border-dashed border-foreground/20 overflow-hidden flex flex-col w-full">
       <div className="flex flex-col flex-grow">
         <CardHeader>
-          {isCurrent && project.image && (
-            <Link href={project.url} target="_blank" className="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
-              <Image src={project.image} alt="" fill={true} className="w-full h-40 object-cover" />
-            </Link>
-          )}
-          <div className="flex items-center justify-between">
+          <div className="flex items-start justify-between">
             <CardTitle className={cn("font-bold text-foreground flex items-center gap-2", isCurrent ? "text-3xl" : "text-xl")}>
               {!isCurrent && <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">{String(index + 1).padStart(3, "0")}</span>}
               <span className="tracking-wide font-extrabold">{project.title}</span>
             </CardTitle>
-            <div className="flex items-center border rounded py-1 px-2 font-mono">
+            <div className="flex items-center border rounded py-1 px-2 font-mono relative -top-2">
               <div className={`w-2 h-2 rounded-full mr-1 ${statusColors[project.status] || "bg-gray-500"}`} />
               <span className="text-xs text-foreground/70 lowercase">{project.status}</span>
             </div>

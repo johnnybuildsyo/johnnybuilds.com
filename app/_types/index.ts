@@ -12,7 +12,7 @@ export type Project = {
   github: string
   stars?: number
   image: string
-  status: "shipped" | "coding" | "getting started" | "idea"
+  status: "live" | "coding" | "getting started" | "idea"
   blogPost?: string
   additionalLinks?: {
     type: "hn" | "reddit" | "youtube" | "openai" | "other"

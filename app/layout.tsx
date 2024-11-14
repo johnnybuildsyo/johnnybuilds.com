@@ -48,7 +48,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <div className="min-h-screen flex flex-col font-display">
             <main className="flex flex-col grow gap-4 row-start-2 justify-center items-center font-display py-12 z-10 relative">{children}</main>
-            <div className="w-full relative aspect-[2/1] -mt-16 -mb-16 pointer-events-none z-0">
+            <div className="w-full relative aspect-[2/1] sm:-mt-8 -mb-4 sm:-mb-16 pointer-events-none z-0">
               <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-background to-transparent z-10"></div>
               <Image src="/johnnybuilds-banner.png" alt="Johnny at work at his laptop, sparks flying everywhere" fill={true} className="object-cover pointer-events-none" />
             </div>

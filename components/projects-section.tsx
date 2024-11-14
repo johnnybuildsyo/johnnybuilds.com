@@ -36,14 +36,14 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
         )}
         {currentProjects.length > 0 && (
           <div className="py-4 flex flex-col items-center gap-4 w-full">
-            <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-thin mb-2 px-4">Current Project{currentProjects.length > 1 ? "s" : ""}</h3>
+            <h3 className="uppercase inline tracking-[4px] text-xs text-green-600 text-center font-bold mb-2 px-4">Active Project{currentProjects.length > 1 ? "s" : ""}</h3>
             {currentProjects.map((project, index) => (
               <ProjectCard key={index} isCurrent={true} project={project} index={index} />
             ))}
           </div>
         )}
         <div className="py-4 flex flex-col items-center gap-4">
-          <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-thin mb-2 px-4">All Projects</h3>
+          <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-bold mb-2 px-4">All Projects</h3>
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
