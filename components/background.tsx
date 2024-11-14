@@ -6,10 +6,10 @@ import { ISourceOptions, MoveDirection, OutMode } from "@tsparticles/engine"
 import { useTheme } from "next-themes"
 
 export default function Background() {
-  const { theme } = useTheme() // Get current theme
+  const { theme } = useTheme()
   const [init, setInit] = useState(false)
 
-  const particleColor = theme === "dark" ? "#ffffff" : "#000000" // Set particle color based on theme
+  const particleOpacity = theme === "dark" ? 0.25 : 0.5
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -29,20 +29,20 @@ export default function Background() {
           },
         },
         color: {
-          value: particleColor, // Dynamic particle color
+          value: "#fff",
         },
         shape: {
           type: "square",
           stroke: {
             width: 0,
-            color: particleColor,
+            color: "#fff",
           },
           polygon: {
             nb_sides: 4,
           },
         },
         opacity: {
-          value: 0.25,
+          value: particleOpacity,
           random: true,
           anim: {
             enable: false,
@@ -63,7 +63,7 @@ export default function Background() {
         },
         move: {
           enable: true,
-          speed: 0.5,
+          speed: 0.33,
           direction: MoveDirection.top,
           random: false,
           straight: false,
@@ -80,7 +80,7 @@ export default function Background() {
       },
       detectRetina: true,
     }),
-    [particleColor]
+    [particleOpacity]
   )
 
   useEffect(() => {
@@ -93,7 +93,7 @@ export default function Background() {
 
   if (init) {
     return (
-      <div className="absolute top-0 left-0 w-screen h-[560px] bg-foreground/40 overflow-hidden">
+      <div key={theme} className="absolute top-0 left-0 w-screen h-[560px] bg-foreground/40 overflow-hidden">
         <Particles id="tsparticles" options={options} className="absolute top-0 left-0 w-full h-1/2" />
       </div>
     )
