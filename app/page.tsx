@@ -15,7 +15,7 @@ const posts = (await fetchMediumPosts()) as Post[]
 export default function Home() {
   return (
     <>
-      <h1 className="text-7xl font-extrabold">Johnny Builds</h1>
+      <h1 className="text-7xl font-extrabold w-full text-center">Johnny Builds</h1>
       <GlitchySubhead />
       <Link href="https://github.com/johnnybuildsyo/johnnybuilds.com/discussions/">
         <Button className="flex items-center gap-2 font-display">
