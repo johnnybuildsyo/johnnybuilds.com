@@ -35,14 +35,14 @@ export default function Background() {
           type: "square",
           stroke: {
             width: 0,
-            color: "#000000",
+            color: particleColor,
           },
           polygon: {
             nb_sides: 4,
           },
         },
         opacity: {
-          value: 0.15,
+          value: 0.25,
           random: true,
           anim: {
             enable: false,
@@ -52,7 +52,7 @@ export default function Background() {
           },
         },
         size: {
-          value: 5,
+          value: 4,
           random: true,
           anim: {
             enable: true,
