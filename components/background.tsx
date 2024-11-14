@@ -93,7 +93,7 @@ export default function Background() {
 
   if (init) {
     return (
-      <div className="absolute top-0 left-0 w-screen h-[560px] bg-gradient-to-t from-background via-foreground/20 to-foreground/20 overflow-hidden">
+      <div className="absolute top-0 left-0 w-screen h-[560px] bg-foreground/40 overflow-hidden">
         <Particles id="tsparticles" options={options} className="absolute top-0 left-0 w-full h-1/2" />
       </div>
     )
