@@ -9,7 +9,7 @@ export function PostsSection({ posts }: { posts: Post[] }) {
     <Section title="Posts">
       <div className="space-y-8">
         {posts.map((post) => (
-          <div key={post.pubDate} className="flex flex-col justify-center items-center">
+          <div key={post.pubDate} className="flex flex-col justify-center items-center bg-background">
             <a
               className="flex flex-col sm:flex-row rounded-lg sm:border-0 w-full sm:w-auto items-center gap-4 group hover:scale-[1.01] transition-all ease-in-out duration-500"
               href={post.link}

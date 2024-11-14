@@ -10,33 +10,42 @@ import { fetchMediumPosts } from "./_actions"
 import { Post } from "./_types"
 import { projects } from "./_data"
 import Waves from "@/components/waves"
+import Background from "@/components/background"
 
 const posts = (await fetchMediumPosts()) as Post[]
 
 export default function Home() {
   return (
     <>
-      <div className="absolute bg-gradient-to-t from-foreground/10 to-transparent left-0  w-full top-0 h-[420px] lg:h-[450px] z-10 pointer-events-none">
+      <div className="absolute top-0 left-0 w-screen h-[240px] bg-gradient-to-b from-background to-transparent z-10" />
+      <Background />
+      <div className="absolute bg-gradient-to-t from-background/70 to-transparent left-0  w-full top-0 h-[420px] lg:h-[450px] z-10 pointer-events-none">
         <div className="absolute bottom-0 w-full text-background">
-          <Waves className="absolute bottom-0 left-0 h-[64px] lg:h-[96px] w-full" />
+          <Waves className="absolute bottom-0 left-0 h-[72px] lg:h-[120px] w-full" />
         </div>
       </div>
-      <h1 className="text-7xl font-extrabold w-full text-center">Johnny Builds</h1>
-      <GlitchySubhead />
-      <Link href="https://github.com/johnnybuildsyo/johnnybuilds.com/discussions/">
-        <Button className="flex items-center gap-2 font-display">
-          <GitHubLogoIcon />
-          Contact
-        </Button>
-      </Link>
-      <Intro />
-      <div className="mt-32">
-        <div className="scale-125">
-          <JohnnyDock />
-        </div>
+      <div className="z-20 flex flex-col items-center gap-4">
+        <h1 className="text-7xl font-extrabold w-full text-center">Johnny Builds</h1>
+        <GlitchySubhead />
+        <Link href="https://github.com/johnnybuildsyo/johnnybuilds.com/discussions/">
+          <Button className="flex items-center gap-2 font-display">
+            <GitHubLogoIcon />
+            Contact
+          </Button>
+        </Link>
+        <Intro />
       </div>
-      <ProjectsSection projects={projects} />
-      <PostsSection posts={posts} />
+
+      <div className="absolute top-[450px] bg-gradient-to-b from-background via-background to-transparent w-full h-full"></div>
+      <div className="relative z-10">
+        <div className="mt-32">
+          <div className="scale-125">
+            <JohnnyDock />
+          </div>
+        </div>
+        <ProjectsSection projects={projects} />
+        <PostsSection posts={posts} />
+      </div>
     </>
   )
 }
