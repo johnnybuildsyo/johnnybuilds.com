@@ -96,5 +96,17 @@ export const projects: Project[] = [
       blogPost: "",
       additionalLinks: [],
       stars: 0,
+    },
+    {
+      title: "BuildInPublic Stats",
+      description: "Automated daily stats update to local JSON file",
+      tags: ["stats", "tool", "buildinpublic"],
+      url: "",
+      github: "",
+      image: "",
+      status: "idea",
+      blogPost: "",
+      additionalLinks: [],
+      stars: 0,
     }
   ]
