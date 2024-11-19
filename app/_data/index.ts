@@ -46,7 +46,7 @@ export const projects: Project[] = [
       status: "live",
       blogPost: "https://bsky.app/profile/johnnybuilds.bsky.social/post/3la677sgu722x",
       additionalLinks: [],
-      stars: 0,
+      stars: 1,
       isCurrent: true,
     },
     {
