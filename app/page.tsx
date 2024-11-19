@@ -11,6 +11,7 @@ import { Post } from "./_types"
 import { projects } from "./_data"
 import Waves from "@/components/waves"
 import Background from "@/components/background"
+import { StatsSection } from "@/components/stats-section"
 
 const posts = (await fetchMediumPosts()) as Post[]
 
@@ -44,6 +45,7 @@ export default function Home() {
           </div>
         </div>
         <ProjectsSection projects={projects} />
+        <StatsSection />
         <PostsSection posts={posts} />
       </div>
     </>

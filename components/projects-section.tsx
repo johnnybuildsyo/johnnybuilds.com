@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { Section } from "./ui/section"
 import { Project } from "@/app/_types"
 import { ProjectCard } from "./projects-card"
+import { Card } from "./ui/card"
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   useEffect(() => {
@@ -43,10 +44,25 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
           </div>
         )}
         <div className="py-4 flex flex-col items-center gap-4">
-          <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-bold mb-2 px-4">All Projects</h3>
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
+          <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-bold mb-2 px-4">Live Projects</h3>
+          {projects
+            .filter((project) => project.status === "live" && !project.isCurrent)
+            .map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+        </div>
+        <div className="py-4 flex flex-col items-center gap-4">
+          <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-bold mb-2 px-4">Ideas</h3>
+          <Card className="border border-dashed border-foreground/20 overflow-hidden flex flex-col w-full py-4 px-8 lg:px-16 divide-y divide-dashed">
+            {projects
+              .filter((project) => project.status === "idea")
+              .map((project) => (
+                <div className="text-center py-4" key={project.title}>
+                  <div>{project.title}</div>
+                  <div className="text-xs text-balance">{project.description}</div>
+                </div>
+              ))}
+          </Card>
         </div>
       </div>
     </Section>
