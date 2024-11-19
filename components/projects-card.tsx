@@ -22,7 +22,7 @@ export function ProjectCard({ project, index, isCurrent }: { project: Project; i
         <CardHeader>
           <div className="flex items-start justify-between">
             <CardTitle className={cn("font-bold text-foreground flex items-center gap-2", isCurrent ? "text-3xl" : "text-xl")}>
-              {!isCurrent && <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">{String(index + 1).padStart(3, "0")}</span>}
+              {!isCurrent && <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">{String(index).padStart(3, "0")}</span>}
               <span className="tracking-wide font-extrabold">{project.title}</span>
             </CardTitle>
             <div className="flex items-center border rounded py-1 px-2 font-mono relative -top-2">
