@@ -2,8 +2,19 @@ import { Project } from "../_types"
 
 export const projects: Project[] = [
     {
+      title: "johnnybuilds.com",
+      description: "This website right here that you be lookin’ at.",
+      tags: ["website", "buildinpublic"],
+      url: "https://johnnybuilds.com/",
+      github: "https://github.com/johnnybuildsyo/johnnybuilds.com",
+      image: "",
+      status: "live",
+      blogPost: "https://medium.com/@johnnybuilds/starting-from-scratch-47b8fdf6fe1f",
+      additionalLinks: [],
+      stars: 1,
+    },{
       title: "JohnnyBuilds Next.js Starter",
-      description: "Multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again.",
+      description: "Next.js Starter template for all my projects to help me get up and running quickly.",
       tags: ["next.js", "starter", "template", "resource"],
       url: "https://johnnybuilds-nextjs-starter.vercel.app/",
       github: "https://github.com/johnnybuildsyo/johnnybuilds-nextjs-starter",
