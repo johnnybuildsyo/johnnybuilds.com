@@ -73,5 +73,17 @@ export const projects: Project[] = [
       blogPost: "",
       additionalLinks: [],
       stars: 0,
+    },
+    {
+      title: "Podcastomatic",
+      description: "AI powered automated podcast interview tool",
+      tags: ["podcast", "ai", "tool", "buildinpublic"],
+      url: "",
+      github: "",
+      image: "",
+      status: "idea",
+      blogPost: "",
+      additionalLinks: [],
+      stars: 0,
     }
   ]
