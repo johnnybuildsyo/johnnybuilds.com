@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -7,6 +5,7 @@ import { ExternalLink, GithubIcon, BookOpen, MessageCircle, Youtube, StarIcon } 
 import { OpenAIIcon } from "./ui/icons/OpenAIIcon"
 import { Project } from "@/app/_types"
 import { cn } from "@/lib/utils"
+import { ProjectDAUWidget } from "./project-dau-widget"
 
 const statusColors: { [key: string]: string } = {
   live: "bg-green-600",
@@ -30,6 +29,8 @@ export function ProjectCard({ project, index, isCurrent }: { project: Project; i
               <span className="text-xs text-foreground/70 lowercase">{project.status}</span>
             </div>
           </div>
+          {project.dau && <ProjectDAUWidget dauData={project.dau} title={project.title} />}
+
           <CardDescription className={cn("text-foreground/70 text-pretty", isCurrent ? "text-base" : "text-sm")}>{project.description}</CardDescription>
         </CardHeader>
         <CardContent>

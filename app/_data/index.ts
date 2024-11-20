@@ -2,6 +2,7 @@ import { Project } from "../_types"
 
 export const projects: Project[] = [
     {
+      slug: "johnnybuilds-com",
       title: "johnnybuilds.com",
       description: "This website right here that you be lookin’ at.",
       tags: ["website", "buildinpublic"],
@@ -13,6 +14,7 @@ export const projects: Project[] = [
       additionalLinks: [],
       stars: 1,
     },{
+      slug: "johnnybuilds-nextjs-starter",
       title: "JohnnyBuilds Next.js Starter",
       description: "Next.js Starter template for all my projects to help me get up and running quickly.",
       tags: ["next.js", "starter", "template", "resource"],
@@ -25,6 +27,7 @@ export const projects: Project[] = [
       stars: 1,
     },
     {
+      slug: "global-battle-royale",
       title: "Global Battle Royale",
       description: "Massively multiplayer elimination game with a series of escalating challenges until we get to an ultimate winner. Then we start all over again. A cross between One Million Checkboxes and Squid Game.",
       tags: ["next.js", "game"],
@@ -37,6 +40,7 @@ export const projects: Project[] = [
       stars: 0,
     },
     {
+      slug: "publicbuilders-org",
       title: "publicbuilders.org",
       description: "A directory of prominent folks who build in public along with stats (follower counts, github stars, etc) and links.",
       tags: ["next.js", "directory"],
@@ -50,6 +54,7 @@ export const projects: Project[] = [
       isCurrent: true,
     },
     {
+      slug: "ai-tarot-card-reader",
       title: "AI Tarot Card Reader",
       description: "An AI Tarot Card reader that generates its own cards then interprets them to read your fortune.",
       tags: ["next.js", "game"],
@@ -62,6 +67,7 @@ export const projects: Project[] = [
       stars: 0,
     },
     {
+      slug: "interactive-movie-playground",
       title: "Interactive Movie Playground",
       description: "Interactive AI playground to create movie loglines, plot outlines, movie trailers and scripts.",
       tags: ["next.js", "ai", "movies"],
@@ -74,6 +80,7 @@ export const projects: Project[] = [
       stars: 0,
     },
     {
+      slug: "build-log-generator",
       title: "Build Log Generator",
       description: "Tool for generating daily build log entries with AI from commit history for #buildinpublic projects",
       tags: ["CLI", "ai", "tool", "buildinpublic"],
@@ -86,21 +93,10 @@ export const projects: Project[] = [
       stars: 0,
     },
     {
+      slug: "podcastomatic",
       title: "Podcastomatic",
       description: "AI powered automated podcast interview tool",
       tags: ["podcast", "ai", "tool", "buildinpublic"],
-      url: "",
-      github: "",
-      image: "",
-      status: "idea",
-      blogPost: "",
-      additionalLinks: [],
-      stars: 0,
-    },
-    {
-      title: "BuildInPublic Stats",
-      description: "Automated daily stats update to local JSON file",
-      tags: ["stats", "tool", "buildinpublic"],
       url: "",
       github: "",
       image: "",
