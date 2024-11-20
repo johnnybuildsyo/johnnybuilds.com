@@ -24,7 +24,6 @@ const processDAUData = (data: DAUData) => {
 
 export function ProjectDAUWidget({ dauData, title }: DAUWidgetProps) {
   const data = processDAUData(dauData)
-  const currentDAU = data[data.length - 1]?.dau || 0
 
   return (
     <Card className="w-full">

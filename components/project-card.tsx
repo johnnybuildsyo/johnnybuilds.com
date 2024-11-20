@@ -30,8 +30,7 @@ export function ProjectCard({ project, index, isCurrent }: { project: Project; i
             </div>
           </div>
           {project.dau && <ProjectDAUWidget dauData={project.dau} title={project.title} />}
-
-          <CardDescription className={cn("text-foreground/70 text-pretty", isCurrent ? "text-base" : "text-sm")}>{project.description}</CardDescription>
+          <CardDescription className={cn("text-foreground/70 text-pretty", project.dau && "text-center text-balance", isCurrent ? "text-base" : "text-sm")}>{project.description}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
