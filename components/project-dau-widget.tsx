@@ -37,7 +37,7 @@ export function ProjectDAUWidget({ dauData, title }: DAUWidgetProps) {
               <span className="font-mono opacity-80 text-xs py-0.5 scale-90">Daily Active User Tracking</span>
             </div>
           </div>
-          <div className="aspect-video w-full overflow-hidden relative -top-3 sm:-left-3">
+          <div className="aspect-video sm:aspect-auto w-full overflow-hidden relative -top-3 sm:-left-3">
             <ChartContainer
               config={{
                 dau: {
@@ -45,7 +45,7 @@ export function ProjectDAUWidget({ dauData, title }: DAUWidgetProps) {
                   color: "#4ade80", // Hardcoded green-400
                 },
               }}
-              className="w-[115%] h-[200px] absolute sm:static sm:w-full sm:h-full top-0 -left-[15%]"
+              className="w-[115%] h-[200px] absolute sm:static sm:w-full sm:h-[300px] top-0 -left-[15%]"
             >
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

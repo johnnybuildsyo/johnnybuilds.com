@@ -16,7 +16,7 @@ export type Project = {
   github: string;
   stars?: number;
   image: string;
-  status: "live" | "coding" | "getting started" | "idea";
+  status: "live" | "coding" | "getting started" | "idea" | "killed" | "abandoned";
   blogPost?: string;
   additionalLinks?: {
     type: "hn" | "reddit" | "youtube" | "openai" | "other";

@@ -87,7 +87,7 @@ export const projects: Project[] = [
       url: "",
       github: "",
       image: "",
-      status: "idea",
+      status: "killed",
       blogPost: "",
       additionalLinks: [],
       stars: 0,
