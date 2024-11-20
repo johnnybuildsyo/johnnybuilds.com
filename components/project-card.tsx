@@ -20,11 +20,11 @@ export function ProjectCard({ project, index, isCurrent }: { project: Project; i
       <div className="flex flex-col flex-grow">
         <CardHeader>
           <div className="flex items-start justify-between">
-            <CardTitle className={cn("font-bold text-foreground flex items-center gap-2", isCurrent ? "text-3xl" : "text-xl")}>
+            <CardTitle className={cn("font-bold text-foreground flex items-center gap-2", isCurrent ? "text-2xl sm:text-3xl" : "text-xl")}>
               {!isCurrent && <span className="bg-foreground/20 px-1 py-0.5 rounded font-mono text-xs tracking-wider">{String(index).padStart(3, "0")}</span>}
               <span className="tracking-wide font-extrabold">{project.title}</span>
             </CardTitle>
-            <div className="flex items-center border rounded py-1 px-2 font-mono relative -top-2">
+            <div className="flex items-center border rounded py-1 px-2 font-mono relative -top-4 -right-4 sm:right-0 sm:-top-2">
               <div className={`w-2 h-2 rounded-full mr-1 ${statusColors[project.status] || "bg-gray-500"}`} />
               <span className="text-xs text-foreground/70 lowercase">{project.status}</span>
             </div>
