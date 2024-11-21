@@ -20,11 +20,11 @@ export function PostsSection({ posts }: { posts: Post[] }) {
                   Read <ChevronsRightIcon className="relative -top-px" />
                 </>
               </Button>
-              <div className="w-full grow flex flex-col items-center sm:flex-row sm:gap-4 border border-foreground/20 sm:border-0 px-8 py-4 sm:p-0 rounded-lg">
-                <h3 className="text-xl font-bold" style={{ textWrap: "balance" }}>
+              <div className="w-full grow flex flex-col items-center sm:flex-row sm:gap-2 border border-foreground/20 sm:border-0 px-8 py-4 sm:p-0 rounded-lg">
+                <h3 className="text-xl font-bold line-clamp-1" style={{ textWrap: "balance" }}>
                   {post.title}
                 </h3>
-                <span className="text-xs opacity-60 font-mono">{new Date(post.pubDate).toLocaleString()}</span>
+                <span className="text-xs opacity-60 font-mono pt-1">{new Date(post.pubDate).toLocaleString().split(",")[0]}</span>
               </div>
             </a>
           </div>
