@@ -6,13 +6,13 @@ import GlitchySubhead from "@/components/glitchy-subhead"
 import { JohnnyDock } from "@/components/johnny-dock"
 import { ProjectsSection } from "@/components/projects-section"
 import { PostsSection } from "@/components/posts-section"
-import { fetchMediumPosts } from "./_actions"
 import { Post, ProjectsDAUData } from "./_types"
 import { projects as baseProjects } from "./_data"
 import Waves from "@/components/waves"
 import Background from "@/components/background"
 import { StatsSection } from "@/components/stats-section"
 import projectsDAUData from "@/app/_data/projects_dau.json"
+import postsData from "@/app/_data/posts.json"
 
 const projectsDAU: ProjectsDAUData = projectsDAUData
 const projects = baseProjects.map((project) => ({
@@ -20,7 +20,7 @@ const projects = baseProjects.map((project) => ({
   dau: projectsDAU[project.slug] || undefined,
 }))
 
-const posts = (await fetchMediumPosts()) as Post[]
+const posts = postsData as Record<string, Post>
 
 export default function Home() {
   return (
@@ -53,7 +53,7 @@ export default function Home() {
         </div>
         <ProjectsSection projects={projects} />
         <StatsSection />
-        <PostsSection posts={posts} />
+        <PostsSection posts={Object.values(posts)} />
       </div>
     </>
   )

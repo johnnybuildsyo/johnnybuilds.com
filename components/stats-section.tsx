@@ -1,5 +1,3 @@
-"use client"
-
 import { Section } from "./ui/section"
 import { FollowerCountWidget } from "./follower-count-widget"
 

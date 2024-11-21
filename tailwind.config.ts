@@ -58,9 +58,25 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		typography: {
+			DEFAULT: {
+			css: {
+				img: {
+					border: "2px solid rgba(122,122,122,.2)",				
+				},
+				figcaption: {
+					textAlign: "center",
+					width: "100%"
+				}
+			},
+			},
+      },
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+	require("tailwindcss-animate"),
+	require("@tailwindcss/typography")
+  ],
 };
 export default config;

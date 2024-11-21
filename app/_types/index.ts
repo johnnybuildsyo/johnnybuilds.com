@@ -2,6 +2,8 @@ export type Post = {
   title: string
   link: string
   pubDate: string
+  contentSnippet: string
+  content: string
 }
 
 export type ProjectsDAUData = Record<string, DAUData>;

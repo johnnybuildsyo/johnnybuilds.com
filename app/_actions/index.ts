@@ -6,6 +6,8 @@ const parser = new Parser();
 export async function fetchMediumPosts() {
   "use server";
   const feed = await parser.parseURL(`https://medium.com/feed/@johnnybuilds`);
+
+  console.log(feed.items[0])
   
   return feed.items.map((item) => ({
     title: item.title,
