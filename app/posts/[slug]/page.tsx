@@ -6,6 +6,8 @@ import { Post } from "@/app/_types"
 import Waves from "@/components/waves"
 import Background from "@/components/background"
 import postsData from "@/app/_data/posts.json"
+import { ChevronsLeftIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const posts = postsData as unknown as Record<string, Post>
 
@@ -55,7 +57,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
       <div className="absolute top-[240px] sm:top-[320px] bg-gradient-to-b from-background via-background to-transparent w-full h-full"></div>
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-4">
-        <div className="mt-16 sm:mt-24">
+        <div className="sm:mt-24">
           <div className="sm:scale-125">
             <JohnnyDock />
           </div>
@@ -71,11 +73,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         ) : (
           <>
             <h2 className="text-4xl font-bold text-center text-balance">Post Not Found</h2>
-            <Link className="text-2xl underline" href="/">
-              Return Home
-            </Link>
           </>
         )}
+        <div className="flex justify-center">
+          <Link href="/#posts">
+            <Button className="text-xl h-auto py-2 hover:scale-105" size="lg" variant="outline">
+              <ChevronsLeftIcon /> Back to Posts
+            </Button>
+          </Link>
+        </div>
       </div>
     </>
   )

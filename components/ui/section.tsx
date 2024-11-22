@@ -9,7 +9,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement>, VariantProps<t
 }
 
 const Section = React.forwardRef<HTMLElement, SectionProps>(({ title, className, children, ...props }, ref) => (
-  <section ref={ref} className={cn(sectionVariants(), className)} {...props}>
+  <section id={title.toLowerCase().replace(/\s+/g, "")} ref={ref} className={cn(sectionVariants(), className)} {...props}>
     <h2 className="text-lg font-bold text-center mb-4 uppercase tracking-widest">{title}</h2>
     <div>{children}</div>
   </section>
