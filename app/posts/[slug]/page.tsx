@@ -62,7 +62,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <div className="px-8 pt-4 sm:pt-12">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-wide text-center text-balance">{post.title}</h2>
             <div
-              className="prose prose-invert max-w-none mx-auto p-4 sm:pt-16" // Tailwind's prose class for styling
+              className="prose prose-invert max-w-none mx-auto p-4 sm:pt-16 sm:px-8" // Tailwind's prose class for styling
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>

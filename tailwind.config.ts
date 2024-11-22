@@ -63,15 +63,55 @@ const config: Config = {
 		typography: {
 			DEFAULT: {
 			css: {
-				img: {
-					border: "2px solid rgba(122,122,122,.2)",				
+			color: 'hsl(var(--foreground))',
+			h1: {
+				color: 'hsl(var(--foreground))',
+			},
+			h2: {
+				color: 'hsl(var(--foreground))',
+			},
+			h3: {
+				color: 'hsl(var(--foreground))',
+			},
+			h4: {
+				color: 'hsl(var(--foreground))',
+			},
+			h5: {
+				color: 'hsl(var(--foreground))',
+			},
+			h6: {
+				color: 'hsl(var(--foreground))',
+			},
+			p: {
+				color: 'hsl(var(--foreground))',
+				textWrap: 'pretty'
+			},
+			strong: {
+				color: 'hsl(var(--foreground))',
+			},
+			blockquote: {
+				borderLeftColor: 'hsl(var(--foreground))',
+				color: 'hsl(var(--foreground))',
+				fontStyle: 'italic',
+			},
+			a: {
+				color: 'hsl(var(--foreground))', // Ensure links are visible
+				textDecoration: 'underline',
+				fontWeight: '500', // Optional for better visibility
+				'&:hover': {
+				color: 'hsl(var(--foreground))',
+				opacity: '0.8', // Slight hover effect
 				},
-				figcaption: {
-					textAlign: "center",
-					width: "100%"
-				}
+			},
+			img: {
+				border: '2px solid rgba(122,122,122,.2)',
+			},
+			figcaption: {
+				textAlign: 'center',
+				width: '100%',
 			},
 			},
+		},
       },
   	}
   },
