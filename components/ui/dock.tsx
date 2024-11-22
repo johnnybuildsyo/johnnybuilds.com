@@ -83,7 +83,7 @@ const DockIcon = ({ magnification = DEFAULT_MAGNIFICATION, distance = DEFAULT_DI
   })
 
   return (
-    <motion.div ref={ref} style={{ width }} className={cn("flex aspect-square cursor-pointer items-center justify-center rounded-full", className)} {...props}>
+    <motion.div ref={ref} style={{ width }} className={cn("flex aspect-square overflow-hidden cursor-pointer items-center justify-center rounded-full", className)} {...props}>
       {children}
     </motion.div>
   )

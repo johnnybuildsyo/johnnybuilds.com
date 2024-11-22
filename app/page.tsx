@@ -20,7 +20,7 @@ const projects = baseProjects.map((project) => ({
   dau: projectsDAU[project.slug] || undefined,
 }))
 
-const posts = postsData as Record<string, Post>
+const posts = postsData as unknown as Record<string, Post>
 
 export default function Home() {
   return (

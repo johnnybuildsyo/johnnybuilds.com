@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Link from "next/link"
 import GlitchySubhead from "@/components/glitchy-subhead"
 import { JohnnyDock } from "@/components/johnny-dock"
@@ -6,11 +7,32 @@ import Waves from "@/components/waves"
 import Background from "@/components/background"
 import postsData from "@/app/_data/posts.json"
 
-const posts = postsData as Record<string, Post>
+const posts = postsData as unknown as Record<string, Post>
+
+function extractFirstImageSrc(htmlContent: string): string | null {
+  const match = htmlContent.match(/<img[^>]*src="([^"]+)"[^>]*>/) // Regex to find the first img tag's src
+  return match ? match[1] : null // Return the src or null if no image found
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const slug = (await params).slug
+  const post = posts[slug]
+  const shareImage = extractFirstImageSrc(post.content) || "https://johnnybuilds.com/screenshot.png"
+
+  return {
+    title: "Johnny Builds | " + post.title,
+    description: post.contentSnippet,
+    openGraph: {
+      images: shareImage,
+    },
+    twitter: {
+      images: shareImage,
+    },
+  }
+}
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug
-
   const post = posts[slug]
 
   return (
