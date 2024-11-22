@@ -45,7 +45,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </div>
       </div>
       <div className="z-20 flex flex-col items-center gap-2 sm:gap-4">
-        <h1 className="text-[10vw] sm:text-7xl font-extrabold w-full text-center -mt-4 sm:mt-0">Johnny Builds</h1>
+        <Link href="/">
+          <h1 className="text-[10vw] sm:text-7xl font-extrabold w-full text-center -mt-4 sm:mt-0">Johnny Builds</h1>
+        </Link>
         <div className="-mt-3 sm:mt-0 scale-75 sm:scale-100">
           <GlitchySubhead />
         </div>
