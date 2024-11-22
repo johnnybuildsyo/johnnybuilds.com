@@ -1,8 +1,8 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, Scatter, Tooltip } from "recharts"
+import { ChartContainer } from "@/components/ui/chart"
 import { DAUData } from "@/app/_types"
 
 type DAUWidgetProps = {
@@ -16,9 +16,10 @@ const formatDate = (dateString: string) => {
 }
 
 const processDAUData = (data: DAUData) => {
-  return Object.entries(data).map(([date, { dau }]) => ({
+  return Object.entries(data).map(([date, { dau, event }]) => ({
     date: formatDate(date),
     dau,
+    event: event || null, // Default to null if no event
   }))
 }
 
@@ -52,7 +53,21 @@ export function ProjectDAUWidget({ dauData, title }: DAUWidgetProps) {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="date" />
                   <YAxis />
-                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Tooltip
+                    content={({ active, payload, label }) => {
+                      if (active && payload && payload.length) {
+                        const dataPoint = payload[0].payload
+                        return (
+                          <div className="custom-tooltip font-semibold" style={{ textShadow: "0 0 10px #000" }}>
+                            <p>{`Date: ${label}`}</p>
+                            <p>{`DAU: ${dataPoint.dau}`}</p>
+                            {dataPoint.event && <p className="font-extrabold">{`${dataPoint.event}`}</p>}
+                          </div>
+                        )
+                      }
+                      return null
+                    }}
+                  />
                   <Legend formatter={() => "DAU"} />
                   <Line
                     type="monotone"

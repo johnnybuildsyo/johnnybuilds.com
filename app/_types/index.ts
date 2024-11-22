@@ -7,7 +7,7 @@ export type Post = {
 }
 
 export type ProjectsDAUData = Record<string, DAUData>;
-export type DAUData = Record<string, { dau: number }>
+export type DAUData = Record<string, { dau: number, event?: string }>
 
 export type Project = {
   slug: string;
