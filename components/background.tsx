@@ -52,7 +52,7 @@ export default function Background() {
           },
         },
         size: {
-          value: 4,
+          value: 5,
           random: true,
           anim: {
             enable: true,
