@@ -19,7 +19,7 @@ export function PostsSection({ posts }: { posts: Post[] }) {
               })}`}
               target="_blank"
             >
-              <Button className="flex-1 relative -top-1 sm:top-0 sm:left-3 font-mono font-semibold uppercase text-sm pl-2 pr-1 py-0.5 gap-0 h-auto bg-foreground sm:bg-foreground/30 transition-all ease-in-out duration-500 rounded scale-[.7] sm:scale-75 -mb-8 sm:-mb-0">
+              <Button className="flex-1 relative -top-1 sm:top-0 sm:left-3 font-mono font-semibold uppercase text-sm pl-2 pr-1 py-0.5 gap-0 h-auto bg-foreground sm:bg-foreground/50 transition-all ease-in-out duration-500 rounded scale-[.7] sm:scale-75 -mb-8 sm:-mb-0">
                 <>
                   Read <ChevronsRightIcon className="relative -top-px" />
                 </>
