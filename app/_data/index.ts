@@ -117,5 +117,6 @@ export const projects: Project[] = [
     blogPost: "",
     additionalLinks: [],
     stars: 0,
+    isCurrent: true,
   }
 ]

@@ -26,6 +26,14 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
             ))}
         </div>
         <div className="py-4 flex flex-col items-center gap-4">
+          <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-bold mb-2 px-4 text-yellow-500">In Development</h3>
+          {projects
+            .filter((project) => project.status === "coding" && !project.isCurrent)
+            .map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+        </div>
+        <div className="py-4 flex flex-col items-center gap-4">
           <h3 className="uppercase inline tracking-[4px] text-xs opacity-80 text-center font-bold mb-2 px-4">Ideas</h3>
           <Card className="border border-dashed border-foreground/20 overflow-hidden flex flex-col w-full py-4 px-8 lg:px-16 divide-y divide-dashed">
             {projects
