@@ -6,7 +6,7 @@ const Intro = () => {
         X
       </a>
       ,{" "}
-      <a className="border-b border-dashed border-foreground/40 hover:border-foreground/50" href="https://x.com/johnnybuildz">
+      <a className="border-b border-dashed border-foreground/40 hover:border-foreground/50" href="https://bsky.app/profile/johnnybuilds.bsky.social">
         Bluesky
       </a>{" "}
       or{" "}

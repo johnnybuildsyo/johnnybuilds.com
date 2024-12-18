@@ -62,7 +62,7 @@ const socials = [
   },
   {
     name: "X / Twitter",
-    url: "https://x.com/johnnybuildz",
+    url: "https://x.com/johnnybuilds_",
     icon: Icons.x,
   },
   {
