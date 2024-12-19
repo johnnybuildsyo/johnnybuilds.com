@@ -118,5 +118,18 @@ export const projects: Project[] = [
     additionalLinks: [],
     stars: 0,
     isCurrent: true,
+  },
+  {
+    slug: "codethreads",
+    title: "Code Threads",
+    description: "Live coding in post thread format.",
+    tags: ["coding", "community", "socialmedia", "buildinpublic"],
+    url: "",
+    github: "",
+    image: "",
+    status: "idea",
+    blogPost: "",
+    additionalLinks: [],
+    stars: 0,
   }
 ]
