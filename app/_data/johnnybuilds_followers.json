@@ -102,5 +102,9 @@
   "1_14_2025": {
     "xFollows": null,
     "bskyFollows": 484
+  },
+  "1_15_2025": {
+    "xFollows": 24,
+    "bskyFollows": 485
   }
 }
